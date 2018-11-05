@@ -4,6 +4,6 @@
    install:
       - pip install coveralls
    script:
-      - python3 test_rpn.py
+      - python3 test_rpn.py coveralls -v --cov coveralls --cov-report term-missing
    after_success:
       - coveralls
