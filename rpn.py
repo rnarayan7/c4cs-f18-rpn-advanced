@@ -35,9 +35,6 @@ def calculate(myarg):
         raise TypeError("Too many parameters")
     return stack.pop()
 
-def hello_world():
-    print("Hello World")
-
 def main():
     if len(sys.argv) > 1:
         readInCSV(sys.argv[1])
