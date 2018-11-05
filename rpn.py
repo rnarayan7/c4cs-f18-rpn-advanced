@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import operator
-
+import csv
+import sys
 
 operators = {
     '+': operator.add,
@@ -10,6 +11,12 @@ operators = {
     '/': operator.truediv,
     '^': operator.pow
 }
+
+def readInCSV(filename):
+    with open(filename) as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        for row in reader:
+            print(calculate(' '.join(row)))
 
 def calculate(myarg):
     stack = list()
@@ -32,9 +39,12 @@ def hello_world():
     print("Hello World")
 
 def main():
-    while True:
-        result = calculate(input("rpn calc> "))
-        print("Result: ", result)
+    if len(sys.argv) > 1:
+        readInCSV(sys.argv[1])
+    else:
+        while True:
+            result = calculate(input("rpn calc> "))
+            print("Result: ", result)
 
 if __name__ == '__main__':
     main()
