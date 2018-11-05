@@ -6,6 +6,6 @@
       - pip install coverage
    script:
       - python3 test_rpn.py
-      - coverage run --source=c4cs-f18-rpn-advanced test_rpn.py
+      - coverage run test_rpn.py
    after_success:
       - coveralls
