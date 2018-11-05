@@ -3,7 +3,9 @@
       - "3.5"
    install:
       - pip install coveralls
+      - pip install coverage
    script:
-      - python3 test_rpn.py coveralls -v --cov coveralls --cov-report term-missing
+      - python3 test_rpn.py
+      - coverage run --source=c4cs-f18-rpn-advanced test_rpn.py
    after_success:
       - coveralls
